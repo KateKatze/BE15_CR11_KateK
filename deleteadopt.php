@@ -16,6 +16,9 @@ $id = $_GET["id"];
 $sql = "DELETE FROM pet_adoption WHERE fk_animal_id = {$id}";
 $res = mysqli_query($connect, $sql);
 
+$sql2 = "UPDATE animals SET status = 0 WHERE animal_id = {$id}";
+$res2 = mysqli_query($connect, $sql2);
+
 ?>
 
 <!DOCTYPE html>

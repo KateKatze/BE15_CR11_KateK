@@ -29,6 +29,9 @@ if (mysqli_num_rows($res1) > 0) {
 $sql = "INSERT INTO pet_adoption (fk_user_id, fk_animal_id) VALUES ({$_SESSION["user"]}, {$_GET["id"]})";
 $res = mysqli_query($connect, $sql);
 
+$sql2 = "UPDATE animals SET status = 1 WHERE animal_id = {$_GET["id"]}";
+$res2 = mysqli_query($connect, $sql2);
+
 ?>
 
 <!DOCTYPE html>

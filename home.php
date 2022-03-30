@@ -29,7 +29,7 @@ $age = -1;
 $res = mysqli_query($connect, "SELECT * FROM users WHERE users_id = " . $_SESSION['user']);
 $rowuser = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
-$sql = "SELECT * FROM animals WHERE age > '$age'";
+$sql = "SELECT * FROM animals WHERE age > '$age' AND status = 0";
 $result = mysqli_query($connect,$sql);
 $tbody ='';
 
@@ -44,8 +44,8 @@ if(mysqli_num_rows($result) > 0){
         <td>" . $row['hobbies'] . "</td>
         <td>" . $row['breed'] . "</td>
         <td>
-        <a href='details.php?id=" . $row['animal_id'] . "'><button class='btn btn-primary btn-sm mb-2' style='width: 3vw;' type='button'>Details</button></a>
-        <a href='adopt.php?id=" . $row['animal_id'] . "'><button class='btn btn-success btn-sm' style='width: 3vw;' type='button'>Adopt</button></a>
+        <a href='details.php?id=" . $row['animal_id'] . "'><button class='btn btn-primary btn-sm mb-2' style='width: 5vw;' type='button'>Details</button></a>
+        <a href='adopt.php?id=" . $row['animal_id'] . "'><button class='btn btn-success btn-sm' style='width: 5vw;' type='button'>Adopt</button></a>
         </td>
         </tr>";
     };
